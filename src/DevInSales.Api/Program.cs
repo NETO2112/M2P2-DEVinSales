@@ -3,6 +3,7 @@ using DevInSales.Core.Entities;
 using DevInSales.Core.Interfaces;
 using DevInSales.Core.Services;
 using DevInSales.EFCoreApi.Core.Interfaces;
+using DevInSales.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -15,6 +16,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSQLConnection"))
+);
+builder.Services.AddDbContext<IdentityDataContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSQLConnection"))
 );
 
@@ -41,7 +45,7 @@ builder.Services.AddSwaggerGen(c =>
             Url = new Uri("https://github.com/DEVin-Way2-Pixeon-Paradigma/M2P2-DEVinSales")
         }
     });
-    var xmlFile = "DevInSales.API.xml";
+    var xmlFile = "DevInSales.Api.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 
     c.IncludeXmlComments(xmlPath);

@@ -1,4 +1,4 @@
-using DevInSales.Api.Dtos;
+using DevInSales.Application.Dtos;
 using DevInSales.Core.Entities;
 using DevInSales.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;

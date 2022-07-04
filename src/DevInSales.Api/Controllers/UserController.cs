@@ -1,4 +1,4 @@
-using DevInSales.Api.Dtos;
+using DevInSales.Application.Dtos;
 using DevInSales.Core.Entities;
 using DevInSales.EFCoreApi.Api.DTOs.Request;
 using DevInSales.EFCoreApi.Core.Interfaces;
